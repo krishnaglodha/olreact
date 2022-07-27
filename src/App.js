@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Layers from "./components/layers/Layers";
+import { OlTileLayer } from "./components/layers/OlTileLayer";
+import { OSMLayer } from "./components/layers/OSMLayer";
+import { ReMap } from "./components/map/map/ReMap";
+import { WMSTile } from "./components/source/WMSTile";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <ReMap center={[0, 0]} zoom={12}>
+        <Layers>
+          <OlTileLayer
+            source={WMSTile("https://ahocevar.com/geoserver/wms", {
+              LAYERS: "topp:states",
+              Tiled: true,
+            })}
+          />
+        </Layers>
+      </ReMap>
     </div>
   );
 }
