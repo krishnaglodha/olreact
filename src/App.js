@@ -1,7 +1,6 @@
 import "./App.css";
 import Layers from "./components/layers/Layers";
 import { OlTileLayer } from "./components/layers/OlTileLayer";
-import { OSMLayer } from "./components/layers/OSMLayer";
 import { ReMap } from "./components/map/map/ReMap";
 import { WMSTile } from "./components/source/WMSTile";
 
